@@ -14,7 +14,7 @@ torrent = json.loads(context.getresponse().read())
 
 if torrent.label is not str(None) or not torrent.label.lower() in ['BakaBT']:
 	context.request('POST', '/stopTorrent', json.dump({'hash': torrent.info_hash}))
-	print 'Stoping torrent'
+	print 'Stopping torrent'
 
 # Script is done, ensure interface knows it.
 context.request('POST', '/done', '{}')
